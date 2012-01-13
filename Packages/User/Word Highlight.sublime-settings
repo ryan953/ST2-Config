@@ -1,0 +1,6 @@
+{
+	"draw_outlined": false,
+
+	"highlight_delay": 25,
+	"highlight_when_selection_is_empty": true
+}

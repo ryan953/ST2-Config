@@ -7,6 +7,7 @@
 		"Jinja2",
 		"Package Control",
 		"SublimeTextGitX",
-		"Terminal"
+		"Terminal",
+		"WordHighlight"
 	]
 }
