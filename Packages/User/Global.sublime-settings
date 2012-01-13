@@ -1,7 +1,9 @@
-// Place user-specific overrides in this file, to ensure they're preserved
-// when upgrading
 {
-	"hot_exit": true,
+	"close_windows_when_empty": false,
 	"highlight_modified_tabs": true,
-	"close_windows_when_empty": false
+	"hot_exit": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	]
 }
