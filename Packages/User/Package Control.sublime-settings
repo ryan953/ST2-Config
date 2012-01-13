@@ -1,7 +1,8 @@
 {
-	"auto_upgrade_last_run": 1326418648,
+	"auto_upgrade_last_run": 1326423051,
 	"installed_packages":
 	[
+		"Git",
 		"Jinja2",
 		"Package Control",
 		"Terminal"
