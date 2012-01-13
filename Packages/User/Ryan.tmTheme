@@ -131,7 +131,20 @@
 				<key>fontStyle</key>
 				<string></string>
 				<key>foreground</key>
-				<string>#99CC99</string>
+				<string>#99cc99</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Double Quoted String</string>
+			<key>scope</key>
+			<string>string.quoted.double</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#669966</string>
 			</dict>
 		</dict>
 		<dict>
