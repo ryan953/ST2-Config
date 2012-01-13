@@ -2,4 +2,14 @@
 // are overridden in turn by file type specific settings. Place your settings
 // here, to ensure they're preserved when upgrading.
 {
+	"rulers": [80],
+	"word_wrap": false,
+	"auto_match_enabled": false,
+	"highlight_line": true,
+	"caret_style": "blink",
+	"save_on_focus_lost": true,
+	"indent_guide_options": ["draw_active", "draw_normal"],
+	"auto_complete_commit_on_tab": true,
+	"shift_tab_unindent": true,
+	"find_selected_text": true
 }
