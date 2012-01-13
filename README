@@ -2,3 +2,8 @@ OSX Command Line:
 ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
 export EDITOR='subl -w'
+
+
+------------
+
+checkout CTags plugin https://github.com/SublimeText/CTags
