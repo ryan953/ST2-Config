@@ -3,6 +3,7 @@
 	"installed_packages":
 	[
 		"Jinja2",
+		"Package Control",
 		"Terminal"
 	]
 }
