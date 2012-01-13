@@ -2,6 +2,7 @@
 	"auto_upgrade_last_run": 1326418648,
 	"installed_packages":
 	[
+		"Jinja2",
 		"Terminal"
 	]
 }
