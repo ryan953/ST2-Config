@@ -1,7 +1,8 @@
 {
-	"auto_upgrade_last_run": 1326423051,
+	"auto_upgrade_last_run": 1327931691,
 	"installed_packages":
 	[
+		"CTags",
 		"Git",
 		"Inc-Dec-Value",
 		"Package Control",

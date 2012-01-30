@@ -14,8 +14,8 @@
 	"font_face": "",
 	"font_size": 10,
 
-	// Valid options are "bold", "italic", "no_antialias", "gray_antialias",
-	// and "subpixel_antialias".
+	// Valid options are "no_bold", "no_italic", "no_antialias", "gray_antialias",
+	// "subpixel_antialias" and "no_round" (OS X only)
 	"font_options": [],
 
 	// Characters that are considered to separate words
@@ -26,6 +26,9 @@
 
 	// Set to false to hide the gutter altogether
 	"gutter": true,
+
+	// Spacing between the gutter and the text
+	"margin": 4,
 
 	// Fold buttons are the triangles shown in the gutter to fold regions of text
 	"fold_buttons": true,
@@ -72,10 +75,10 @@
 	// level
 	"indent_subsequent_lines": true,
 
-	// Set to true to draw text centered in the window rather than left aligned
+	// Draws text centered in the window rather than left aligned
 	"draw_centered": false,
 
-	// Set to false to stop auto pairing quotes, brackets etc
+	// Controls auto pairing of quotes, brackets etc
 	"auto_match_enabled": true,
 
 	// Word list to use for spell checking
@@ -86,7 +89,7 @@
 	// the color scheme
 	"draw_minimap_border": false,
 
-	// Set to false to disable highlighting any line with a caret
+	// If enabled, will highlight any line with a caret
 	"highlight_line": false,
 
 	// Valid values are "smooth", "phase", "blink", "wide" and "solid".
@@ -100,19 +103,22 @@
 	"match_brackets_content": true,
 
 	// Set to false to not highlight square brackets. This only takes effect if
-	// matchBrackets is true
+	// match_brackets is true
 	"match_brackets_square": true,
 
 	// Set to false to not highlight curly brackets. This only takes effect if
-	// matchBrackets is true
+	// match_brackets is true
 	"match_brackets_braces": true,
 
 	// Set to false to not highlight angle brackets. This only takes effect if
-	// matchBrackets is true
+	// match_brackets is true
 	"match_brackets_angle": false,
 
-	// Enable visualisation of the matching tag in HTML and XML
+	// Enable visualization of the matching tag in HTML and XML
 	"match_tags": true,
+
+	// Highlights other occurrences of the currently selected text
+	"match_selection": true,
 
 	// Additional spacing at the top of each line, in pixels
 	"line_padding_top": 0,

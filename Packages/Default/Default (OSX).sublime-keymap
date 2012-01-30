@@ -29,6 +29,11 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["super+v"], "command": "paste" },
 	{ "keys": ["super+shift+v"], "command": "paste_and_indent" },
 
+	{ "keys": ["ctrl+alt+left"], "command": "move", "args": {"by": "subwords", "forward": false} },
+	{ "keys": ["ctrl+alt+right"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
+	{ "keys": ["ctrl+alt+shift+left"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
+	{ "keys": ["ctrl+alt+shift+right"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
+
 	{ "keys": ["ctrl+left"], "command": "move", "args": {"by": "subwords", "forward": false} },
 	{ "keys": ["ctrl+right"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
 	{ "keys": ["ctrl+shift+left"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
