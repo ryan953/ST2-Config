@@ -66,7 +66,7 @@
 			<key>name</key>
 			<string>Variable, String Link</string>
 			<key>scope</key>
-			<string>support.other.variable, string.other.link, entity.name.tag, entity.other.attribute-name, meta.tag, declaration.tag</string>
+			<string>support.other.variable, string.other.link, entity.name.tag, entity.other.attribute-name, meta.tag</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -236,9 +236,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#ffffff</string>
+				<string>#BDB76B</string>
 				<key>background</key>
-				<string>#77aadd</string>
+				<string>#1D1D1D</string>
 			</dict>
 		</dict>
 		<dict>
@@ -249,7 +249,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#F92672</string>
+				<string>#B33D30</string>
 			</dict>
 		</dict>
 		<dict>
@@ -260,7 +260,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#11aa11</string>
+				<string>#99cc99</string>
 			</dict>
 		</dict>
 		<dict>
@@ -271,7 +271,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#ff2222</string>
+				<string>#F99157</string>
 			</dict>
 		</dict>
 	</array>
