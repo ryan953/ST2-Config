@@ -3,4 +3,4 @@ Settings/License.sublime_license
 Settings/Auto Save Session.sublime_session
 *.cache
 *.pyc
-Backup
+Backup/*
