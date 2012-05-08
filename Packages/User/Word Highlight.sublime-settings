@@ -1,7 +1,7 @@
 {
-	"draw_outlined": false,
+	"case_sensitive": true,
+	"draw_outlined": true,
 
-	"highlight_delay": 25,
 	"highlight_when_selection_is_empty": true,
 	"highlight_word_under_cursor_when_selection_is_empty": true
 }

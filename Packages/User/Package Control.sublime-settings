@@ -1,15 +1,22 @@
 {
-	"auto_upgrade_last_run": 1332354824,
+	"auto_upgrade_last_run": 1336445897,
 	"installed_packages":
 	[
+		"ApacheConf.tmLanguage",
+		"Automatic Backups",
+		"CoffeeScript",
 		"CTags",
+		"EncodingHelper",
 		"FileDiffs",
 		"Git",
-		"Inc-Dec-Value",
-		"JSHint",
+		"INI",
+		"Open Recent Files",
 		"Package Control",
+		"SublimeCodeIntel",
+		"SublimeLinter",
 		"SublimeTextGitX",
-		"Terminal",
+		"TrailingSpaces",
+		"Twig",
 		"WordHighlight"
 	]
 }
