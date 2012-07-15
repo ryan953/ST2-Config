@@ -149,6 +149,8 @@ class GitCommand(object):
             self.active_view().run_command('save')
         if command[0] == 'git' and s.get('git_command'):
             command[0] = s.get('git_command')
+        if command[0] == 'git-flow' and s.get('git_flow_command'):
+            command[0] = s.get('git_flow_command')
         if not callback:
             callback = self.generic_done
 
@@ -176,7 +178,7 @@ class GitCommand(object):
         self.panel(result)
 
     def _output_to_view(self, output_file, output, clear=False,
-            syntax="Packages/Diff/Diff.tmLanguage"):
+            syntax="Packages/Diff/Diff.tmLanguage", **kwargs):
         output_file.set_syntax_file(syntax)
         edit = output_file.begin_edit()
         if clear:
@@ -670,7 +672,7 @@ class GitStatusCommand(GitWindowCommand):
         s = sublime.load_settings("Git.sublime-settings")
         root = git_root(self.get_working_dir())
         if picked_status == '??' or s.get('status_opens_file') or self.force_open:
-            if(os.path.isfile(picked_file)): self.window.open_file(os.path.join(root, picked_file))
+            if(os.path.isfile(os.path.join(root, picked_file))): self.window.open_file(os.path.join(root, picked_file))
         else:
             self.run_command(['git', 'diff', '--no-color', '--', picked_file.strip('"')],
                 self.diff_done, working_dir=root)
@@ -915,6 +917,91 @@ class GitCustomCommand(GitWindowCommand):
         print command_splitted
         self.run_command(command_splitted)
 
+class GitFlowCommand(GitWindowCommand):
+    def is_visible(self):
+        s = sublime.load_settings("Git.sublime-settings")
+        if s.get('flow'):
+            return True
+
+class GitFlowFeatureStartCommand(GitFlowCommand):
+    def run(self):
+        self.get_window().show_input_panel('Enter Feature Name:', '', self.on_done, None, None)
+    
+    def on_done(self, feature_name):
+        self.run_command(['git-flow', 'feature', 'start', feature_name])
+
+
+class GitFlowFeatureFinishCommand(GitFlowCommand):
+    def run(self):
+        self.run_command(['git-flow', 'feature'], self.feature_done)
+    
+    def feature_done(self, result):
+        self.results = result.rstrip().split('\n')
+        self.quick_panel(self.results, self.panel_done,
+            sublime.MONOSPACE_FONT)
+    
+    def panel_done(self, picked):
+        if 0 > picked < len(self.results):
+            return
+        picked_feature = self.results[picked]
+        if picked_feature.startswith("*"):
+            picked_feature = picked_feature.strip("*")
+        picked_feature = picked_feature.strip()
+        self.run_command(['git-flow', 'feature', 'finish', picked_feature])
+
+
+class GitFlowReleaseStartCommand(GitFlowCommand):
+    def run(self):
+        self.get_window().show_input_panel('Enter Version Number:', '', self.on_done, None, None)
+    
+    def on_done(self, release_name):
+        self.run_command(['git-flow', 'release', 'start', release_name])
+
+
+class GitFlowReleaseFinishCommand(GitFlowCommand):
+    def run(self):
+        self.run_command(['git-flow', 'release'], self.release_done)
+    
+    def release_done(self, result):
+        self.results = result.rstrip().split('\n')
+        self.quick_panel(self.results, self.panel_done,
+            sublime.MONOSPACE_FONT)
+    
+    def panel_done(self, picked):
+        if 0 > picked < len(self.results):
+            return
+        picked_release = self.results[picked]
+        if picked_release.startswith("*"):
+            picked_release = picked_release.strip("*")
+        picked_release = picked_release.strip()
+        self.run_command(['git-flow', 'release', 'finish', picked_release])
+
+
+class GitFlowHotfixStartCommand(GitFlowCommand):
+    def run(self):
+        self.get_window().show_input_panel('Enter hotfix name:', '', self.on_done, None, None)
+    
+    def on_done(self, hotfix_name):
+        self.run_command(['git-flow', 'hotfix', 'start', hotfix_name])
+
+
+class GitFlowHotfixFinishCommand(GitFlowCommand):
+    def run(self):
+        self.run_command(['git-flow', 'hotfix'], self.hotfix_done)
+    
+    def hotfix_done(self, result):
+        self.results = result.rstrip().split('\n')
+        self.quick_panel(self.results, self.panel_done,
+            sublime.MONOSPACE_FONT)
+    
+    def panel_done(self, picked):
+        if 0 > picked < len(self.results):
+            return
+        picked_hotfix = self.results[picked]
+        if picked_hotfix.startswith("*"):
+            picked_hotfix = picked_hotfix.strip("*")
+        picked_hotfix = picked_hotfix.strip()
+        self.run_command(['git-flow', 'hotfix', 'finish', picked_hotfix])
 
 class GitResetHead(object):
     def run(self, edit=None):
@@ -1051,14 +1138,14 @@ class GitAnnotateCommand(GitTextCommand):
                 typed_diff[change_type].append(region)
 
         for change in ['x', '+']:
-            self.view.add_regions("git.changes.{0}".format(change), typed_diff[change], 'git.changes.{0}'.format(change), 'dot')
+            self.view.add_regions("git.changes.{0}".format(change), typed_diff[change], 'git.changes.{0}'.format(change), 'dot', sublime.HIDDEN)
 
         self.view.add_regions("git.changes.-", typed_diff['-'], 'git.changes.-', 'dot', sublime.DRAW_EMPTY_AS_OVERWRITE)
 
 
 class GitAddSelectedHunkCommand(GitTextCommand):
     def run(self, edit):
-        self.run_command(['git', 'diff', '--no-color', self.get_file_name()], self.cull_diff)
+        self.run_command(['git', 'diff', '--no-color', '-U1', self.get_file_name()], self.cull_diff)
 
     def cull_diff(self, result):
         selection = []
