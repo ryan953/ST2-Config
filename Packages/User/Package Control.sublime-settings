@@ -9,6 +9,7 @@
 		"EncodingHelper",
 		"FileDiffs",
 		"Git",
+		"Handlebars",
 		"INI",
 		"Open Recent Files",
 		"Package Control",
