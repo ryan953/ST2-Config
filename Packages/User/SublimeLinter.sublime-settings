@@ -35,6 +35,13 @@
         "trailing": true,
         "asi": false,
 
+        "forin": true,
+        "latedef": true,
+        "newcap": true,
+        "noarg": true,
+        "nonew": true,
+        "strict": true,
+
         // Grumpy rules
         "undef": true, // No accidental global variables.
         "curly": true, // Always require braces
@@ -42,15 +49,12 @@
         
         // Global variables that are allowed.
         // Include most vendor libraries
-        "predef": [
-          "Backbone", "Hogan", "Fresh", "_", "moment", "Class", "Raphael",
-          "FbCalendar", "dhtmlXCombo", "Currency"
-        ],
+        "predef": [],
         
         // Enable environment globals
-        "browser": true,
-        "jquery": true,
-        "devel": true // Enabled alert(), confirm, and console.:w
+        "browser": false,
+        "jquery": false,
+        "devel": false // Enabled alert(), confirm, and console.:w
     },
 
     // A list of pep8 error numbers to ignore. By default "line too long" errors are ignored.

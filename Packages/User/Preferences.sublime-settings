@@ -12,7 +12,11 @@
 	"hot_exit": true,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Open Recent Files",
+		"Vintage",
+		"Automatic Backups",
+		"SublimeCodeIntel",
+		"WordHighlight"
 	],
 	"indent_guide_options":
 	[
