@@ -49,11 +49,11 @@
         
         // Global variables that are allowed.
         // Include most vendor libraries
-        "predef": [],
+        "predef": ["$", "_"],
         
         // Enable environment globals
-        "browser": false,
-        "jquery": false,
+        "browser": true,
+        "jquery": true,
         "devel": false // Enabled alert(), confirm, and console.:w
     },
 
