@@ -729,6 +729,9 @@ class GitAddChoiceCommand(GitStatusCommand):
     def rerun(self, result):
         self.run()
 
+    def rerun(self, result):
+        self.run()
+
 
 class GitAdd(GitTextCommand):
     def run(self, edit):
