@@ -44,6 +44,7 @@
 
         // Grumpy rules
         "undef": true, // No accidental global variables.
+        "unused": true, //Defined but never used variables.
         "curly": true, // Always require braces
         "bitwise": false, // No bitwise operators
         

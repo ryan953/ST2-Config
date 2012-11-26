@@ -3,6 +3,10 @@
 	"case_sensitive": true,
 	"draw_outlined": true,
 
+	"mark_occurrences_on_gutter" : false,
+	// valid types: dot, circle, bookmark and cross
+	"icon_type_on_gutter" : "dot",
+
 	"highlight_delay": 0,
 	"highlight_when_selection_is_empty": false,
 	"highlight_word_under_cursor_when_selection_is_empty": false,

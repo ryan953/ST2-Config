@@ -20,7 +20,7 @@ VIOLATIONS = {}  # violation messages, they are displayed in the status bar
 WARNINGS = {}    # warning messages, they are displayed in the status bar
 UNDERLINES = {}  # underline regions related to each lint message
 TIMES = {}       # collects how long it took the linting to complete
-MOD_LOAD = Loader(os.getcwd(), LINTERS)  # utility to load (and reload
+MOD_LOAD = Loader(os.getcwdu(), LINTERS)  # utility to load (and reload
                  # if necessary) linter modules [useful when working on plugin]
 
 
@@ -62,6 +62,7 @@ ALL_SETTINGS = [
     'sublimelinter_executable_map',
     'sublimelinter_fill_outlines',
     'sublimelinter_gutter_marks',
+    'sublimelinter_mark_style',
     'sublimelinter_notes',
     'sublimelinter_objj_check_ascii',
     'sublimelinter_popup_errors_on_save',
@@ -130,7 +131,7 @@ def run_once(linter, view, **kwargs):
     WARNINGS[vid] = {}
     start = time.time()
     text = view.substr(sublime.Region(0, view.size())).encode('utf-8')
-    lines, error_underlines, violation_underlines, warning_underlines, ERRORS[vid], VIOLATIONS[vid], WARNINGS[vid] = linter.run(view, text, view.file_name() or '')
+    lines, error_underlines, violation_underlines, warning_underlines, ERRORS[vid], VIOLATIONS[vid], WARNINGS[vid] = linter.run(view, text, view.file_name().encode('utf-8') or '')
 
     UNDERLINES[vid] = error_underlines[:]
     UNDERLINES[vid].extend(violation_underlines)
@@ -211,7 +212,13 @@ def add_lint_marks(view, lines, error_underlines, violation_underlines, warning_
             view.add_regions('lint-underline-' + type_name, underlines, 'sublimelinter.underline.' + type_name, sublime.DRAW_EMPTY_AS_OVERWRITE)
 
     if lines:
-        fill_outlines = view.settings().get('sublimelinter_fill_outlines', False)
+        outline_style = view.settings().get('sublimelinter_mark_style', 'outline')
+
+        # This test is for the legacy "fill" setting; it will be removed
+        # in a future version (likely v1.7).
+        if view.settings().get('sublimelinter_fill_outlines', False):
+            outline_style = 'fill'
+
         gutter_mark_enabled = True if view.settings().get('sublimelinter_gutter_marks', False) else False
 
         outlines = {'warning': [], 'violation': [], 'illegal': []}
@@ -233,7 +240,12 @@ def add_lint_marks(view, lines, error_underlines, violation_underlines, warning_
                     'sublimelinter.outline.{0}'.format(lint_type),
                     MARKS[lint_type][gutter_mark_enabled]
                 ]
-                if not fill_outlines:
+
+                if outline_style == 'none':
+                    args.append(sublime.HIDDEN)
+                elif outline_style == 'fill':
+                    pass  # outlines are filled by default
+                else:
                     args.append(sublime.DRAW_OUTLINED)
                 view.add_regions(*args)
 
@@ -390,7 +402,7 @@ def _update_view(view, filename, **kwargs):
                 valid_view = True
                 break
 
-    if not valid_view or view.is_loading() or view.file_name() != filename:
+    if not valid_view or view.is_loading() or view.file_name().encode('utf-8') != filename:
         return
 
     try:
@@ -416,7 +428,7 @@ def queue_linter(linter, view, timeout=-1, preemptive=False, event=None):
         busy_timeout = timeout
 
     kwargs = {'timeout': timeout, 'busy_timeout': busy_timeout, 'preemptive': preemptive, 'event': event}
-    queue(view, partial(_update_view, view, view.file_name(), **kwargs), kwargs)
+    queue(view, partial(_update_view, view, view.file_name().encode('utf-8'), **kwargs), kwargs)
 
 
 def _callback(view, filename, kwargs):
@@ -596,7 +608,7 @@ def reload_view_module(view):
     for name, linter in LINTERS.items():
         module = sys.modules[linter.__module__]
 
-        if module.__file__ == view.file_name():
+        if module.__file__.encode('utf-8') == view.file_name().encode('utf-8'):
             print 'SublimeLinter: reloading language:', linter.language
             MOD_LOAD.reload_module(module)
             lint_views(linter)
@@ -847,8 +859,8 @@ class SublimelinterAnnotationsCommand(SublimelinterWindowCommand):
         if not view:
             return
 
-        text = view.substr(sublime.Region(0, view.size()))
-        filename = view.file_name()
+        text = view.substr(sublime.Region(0, view.size())).encode('utf-8')
+        filename = view.file_name().encode('utf-8')
         notes = linter.extract_annotations(text, view, filename)
         _, filename = os.path.split(filename)
         annotations_view, _id = view_in_tab(view, 'Annotations from {0}'.format(filename), notes, '')

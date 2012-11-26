@@ -274,6 +274,71 @@
 				<string>#F99157</string>
 			</dict>
 		</dict>
+
+		<dict>
+		    <key>name</key>
+		    <string>SublimeLinter Annotations</string>
+		    <key>scope</key>
+		    <string>sublimelinter.notes</string>
+		    <key>settings</key>
+		    <dict>
+		        <key>background</key>
+		        <string>#FFFFAA</string>
+		        <key>foreground</key>
+		        <string>#FFFFFF</string>
+		    </dict>
+		</dict>
+		<dict>
+		    <key>name</key>
+		    <string>SublimeLinter Error Outline</string>
+		    <key>scope</key>
+		    <string>sublimelinter.outline.illegal</string>
+		    <key>settings</key>
+		    <dict>
+		        <key>background</key>
+		        <string>#FF4A52</string>
+		        <key>foreground</key>
+		        <string>#FFFFFF</string>
+		    </dict>
+		</dict>
+		<dict>
+		    <key>name</key>
+		    <string>SublimeLinter Warning Outline</string>
+		    <key>scope</key>
+		    <string>sublimelinter.outline.warning</string>
+		    <key>settings</key>
+		    <dict>
+		        <key>background</key>
+		        <string>#DF9400</string>
+		        <key>foreground</key>
+		        <string>#FFFFFF</string>
+		    </dict>
+		</dict>
+
+		<dict>
+		    <key>name</key>
+		    <string>SublimeLinter Violation Outline</string>
+		    <key>scope</key>
+		    <string>sublimelinter.outline.violation</string>
+		    <key>settings</key>
+		    <dict>
+		        <key>background</key>
+		        <string>#ffffff</string>
+		        <key>foreground</key>
+		        <string>#FFFFFF</string>
+		    </dict>
+		</dict>
+		<dict>
+		    <key>name</key>
+		    <string>SublimeLinter Underline</string>
+		    <key>scope</key>
+		    <string>sublimelinter.underline.illegal, sublimelinter.underline.warning, sublimelinter.underline.violation</string>
+		    <key>settings</key>
+		    <dict>
+		        <key>background</key>
+		        <string>#FAB223</string>
+		    </dict>
+		</dict>
 	</array>
 	<key>uuid</key>
 	<string>DE477E5B-BD4D-46B0-BF80-2EA32A2814D5</string>

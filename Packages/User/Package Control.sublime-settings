@@ -1,5 +1,5 @@
 {
-	"auto_upgrade_last_run": 1343670401,
+	"auto_upgrade_last_run": 1353419914,
 	"installed_packages":
 	[
 		"ApacheConf.tmLanguage",
@@ -15,9 +15,11 @@
 		"Open Recent Files",
 		"Package Control",
 		"Pretty JSON",
+		"Redmine",
 		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SublimeTextGitX",
+		"Terminal",
 		"TrailingSpaces",
 		"Twig",
 		"WordHighlight"

@@ -15,7 +15,7 @@ Config summary (see README.md for details):
 @author: Jean-Denis Vauguet <jd@vauguet.fr>, Oktay Acikalin <ok@ryotic.de>
 @license: MIT (http://www.opensource.org/licenses/mit-license.php)
 @since: 2011-02-25
-'''
+''' 
 
 import sublime
 import sublime_plugin

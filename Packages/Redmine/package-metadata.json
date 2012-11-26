@@ -1,0 +1,4 @@
+{
+	"version": "0.1",
+	"description": "Open a ticket in redmine given the ticket id."
+}
