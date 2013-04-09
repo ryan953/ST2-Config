@@ -2,6 +2,7 @@
 *.pyc
 *.last-run
 Backup/*
+Pristine Packages/*
 Settings/Session.sublime_session
 Settings/License.sublime_license
 Settings/Auto Save Session.sublime_session
