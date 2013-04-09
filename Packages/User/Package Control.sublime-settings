@@ -1,0 +1,18 @@
+{
+	"installed_packages":
+	[
+		"ApacheConf.tmLanguage",
+		"CoffeeScript",
+		"EncodingHelper",
+		"FileDiffs",
+		"Git",
+		"Handlebars",
+		"INI",
+		"LESS",
+		"Package Control",
+		"Pretty JSON",
+		"SublimeLinter",
+		"TrailingSpaces",
+		"Twig"
+	]
+}

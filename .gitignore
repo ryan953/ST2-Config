@@ -5,5 +5,5 @@ Settings/Session.sublime_session
 Settings/License.sublime_license
 Settings/Auto Save Session.sublime_session
 
-Packages/User/*
+Packages/*
 !Packages/User/

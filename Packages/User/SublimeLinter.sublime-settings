@@ -1,0 +1,43 @@
+{
+    // If true, lines with errors or warnings will have a gutter mark.
+    "sublimelinter_gutter_marks": true,
+
+    // jshint: options for linting JavaScript. See http://jshint.com/#docs for more info.
+    // By deault, eval is allowed.
+    "jshint_options":
+    {
+        "trailing": true,
+        "asi": false,
+
+        "forin": true,
+        "latedef": true,
+        "newcap": true,
+        "noarg": true,
+        "nonew": true,
+        "strict": true,
+
+        // Grumpy rules
+        "undef": true, // No accidental global variables.
+        "unused": true, //Defined but never used variables.
+        "curly": true, // Always require braces
+        "bitwise": false, // No bitwise operators
+        
+        // Global variables that are allowed.
+        // Include most vendor libraries
+        "predef": ["$", "_"],
+        
+        // Enable environment globals
+        "browser": true,
+        "jquery": true,
+        "devel": false // Enabled alert(), confirm, and console.:w
+    },
+
+    // A list of pep8 error numbers to ignore. By default "line too long" errors are ignored.
+    // The list of error codes is in this file: https://github.com/jcrocholl/pep8/blob/master/pep8.py.
+    // Search for "Ennn:", where nnn is a 3-digit number.
+    "pep8_ignore":
+    [
+        "E501",
+        "E302"
+    ]
+}
