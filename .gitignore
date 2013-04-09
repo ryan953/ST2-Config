@@ -1,7 +1,9 @@
-Settings/Session.sublime_session
-Settings/License.sublime_license
-Settings/Auto Save Session.sublime_session
 *.cache
 *.pyc
 Backup/*
-.DS_Store
+Settings/Session.sublime_session
+Settings/License.sublime_license
+Settings/Auto Save Session.sublime_session
+
+Packages/User/*
+!Packages/User/
