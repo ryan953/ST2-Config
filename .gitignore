@@ -1,5 +1,6 @@
 *.cache
 *.pyc
+*.last-run
 Backup/*
 Settings/Session.sublime_session
 Settings/License.sublime_license
